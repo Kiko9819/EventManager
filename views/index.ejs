@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+  <div class="container pt-5">
+    <div class="jumbotron">
+      <h1 class="display-4">Welcome to your EventManager</h1>
+      <hr class="my-4">
+      <p class="lead">The place where you can create, read, update and delete events.</p>
+    </div>
+    <h1>Events</h1>
+    <% events.forEach(function(currentEvent){ %>
+      <div class="card my-4">
+        <h5 class="card-header"><%= currentEvent.name %></h5>
+        <div class="card-body">
+          <h5 class="card-title"><%= currentEvent.location %></h5>
+          <p class="card-text">It starts from
+            <%= new Date(currentEvent.startDate).toDateString() %> and ends
+              <%= new Date(currentEvent.endDate).toDateString() %>
+          </p>
+          <p class="card-text">It starts at
+            <%= currentEvent.startTime %> and is due to
+              <%= currentEvent.endTime %>
+          </p>
+          <form class="inline" action="/events/<%= currentEvent._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          <a href="/events/<%= currentEvent._id %>/edit" class="btn btn-warning">Edit</a>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+<% include ./partials/footer %>

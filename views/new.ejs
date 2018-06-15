@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+  <div class="container py-5">
+    <h1 class="display-4 pb-5">New Event</h1>
+    <form action="/events" method="post">
+      <div class="form-group">
+        <label for="eventName">Name your event</label>
+        <input type="text" name="event[name]" class="form-control" id="eventName" aria-describedby="eventName" placeholder="e.g. Concert" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" name="event[location]" class="form-control" id="location" placeholder="Where is the event?" required>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="startDate">When does it start?</label>
+            <input type="date" name="event[startDate]" class="form-control" id="startDate" min="2018-01-01" value="2018-12-06" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="startTime">At what time does it start?</label>
+            <input type="time" name="event[startTime]" class="form-control" id="startTime" value="12:30" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="endTime">At what time does it end?</label>
+            <input type="time" name="event[endTime]" class="form-control" id="endTime" value="15:30" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="endDate">When does it end?</label>
+            <input type="date" name="event[endDate]" class="form-control" id="endDate" value="2018-12-12" required>
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary"></input>
+      <a href="/" class="btn btn-warning">Go Back</a>
+    </form>
+  </div>
+  <script src="/scripts/date.js" charset="utf-8"></script>
+  <% include ./partials/footer %>
